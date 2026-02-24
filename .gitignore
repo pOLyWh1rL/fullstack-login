@@ -1,2 +1,14 @@
-config/db.php
-.env
+# Frontend
+client/node_modules/
+client/dist/
+client/.env
+
+# Backend
+# Note: In a real production app, you would ignore config/db.php to hide credentials.
+# For this school/portfolio project using default XAMPP credentials, it is okay to leave it, 
+# but if you changed your root password, uncomment the line below!
+# config/db.php 
+
+# OS generated files
+.DS_Store
+Thumbs.db
