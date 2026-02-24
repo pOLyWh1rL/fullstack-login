@@ -11,11 +11,19 @@
             <div class="col-md-8">
                 <div class="card shadow">
                     <div class="card-body text-center p-5">
+                        
+                        <?php if(isset($_GET['error']) && $_GET['error'] === 'unauthorized'): ?>
+                            <div class="alert alert-danger">
+                                Access Denied: You do not have administrator privileges.
+                            </div>
+                        <?php endif; ?>
+
                         <h1 class="display-4 text-primary mb-3">Dashboard</h1>
                         <p class="lead">
-                            Welcome back, <strong><?php echo htmlspecialchars($_SESSION['username']); ?></strong>! 
-                            You are successfully logged in via PHP Sessions.
+                            Welcome back, <strong><?php echo htmlspecialchars($_SESSION['username']); ?></strong>!
                         </p>
+                        
+                        <p>Your current role is: <span class="badge bg-secondary"><?php echo htmlspecialchars($_SESSION['role']); ?></span></p>
                         
                         <hr class="my-4" />
                         
@@ -24,14 +32,18 @@
                         </p>
                         
                         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                            <a href="index.php?action=users" class="btn btn-outline-primary px-4 gap-3">
-                                View All Users
-                            </a>
+                            
+                            <?php if($_SESSION['role'] === 'admin'): ?>
+                                <a href="index.php?action=users" class="btn btn-outline-primary px-4 gap-3">
+                                    View All Users (Admin)
+                                </a>
+                            <?php endif; ?>
                             
                             <a href="index.php?action=logout" class="btn btn-danger px-4">
                                 Logout
                             </a>
                         </div>
+
                     </div>
                 </div>
             </div>

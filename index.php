@@ -26,6 +26,12 @@ switch ($action) {
     case 'logout':
         $controller->logout();
         break;
+    case 'edit':
+        $controller->edit();
+        break;
+    case 'delete':
+        $controller->delete();
+        break;
     default:
         $controller->login();
         break;

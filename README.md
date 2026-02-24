@@ -1,33 +1,38 @@
-# Full Stack Login System (React + PHP MVC)
+# Full Stack Login System (PHP MVC)
 
-A fully decoupled web application demonstrating the Model-View-Controller (MVC) architecture. 
+A fully integrated, monolithic web application demonstrating a strict Model-View-Controller (MVC) architecture built entirely from scratch. 
 
 ## 🚀 Tech Stack
-* **Frontend (View):** React.js (Vite), Bootstrap 5, React Router
-* **Backend (Controller):** PHP (REST & SOAP APIs)
-* **Database (Model):** MySQL (PDO Prepared Statements)
-* **Server:** XAMPP (Apache)
+* **Architecture:** MVC (Model-View-Controller)
+* **Backend:** PHP 8.x
+* **Frontend (Views):** HTML5, PHP, Bootstrap 5
+* **Database:** MySQL (PDO Prepared Statements)
+* **APIs:** Native REST and SOAP implementations
+* **Environment:** XAMPP (Apache/MySQL)
 
-## 🌟 Features
-* User Registration (with password hashing)
-* Login Authentication (localStorage session management)
-* Protected Dashboard Route
-* Dynamic User List fetched via REST API
-* Native SOAP API implementation
+## 🌟 Key Features
+* **Secure Authentication:** User registration and login utilizing `password_hash()` and `password_verify()`.
+* **Session Management:** Protected dashboard and routes using native PHP `$_SESSION`.
+* **Strict MVC Separation:** * **Models:** Handle all direct database interactions and SQL queries.
+  * **Controllers:** Manage input validation, business logic, and data passing.
+  * **Views:** Dynamic frontend rendering using embedded PHP and Bootstrap.
+* **API Integration:** Includes custom-built REST endpoints and a native PHP SOAP server to demonstrate API data fetching.
+* **Security Best Practices:** Excluded database credentials via `.gitignore` and utilized PDO to prevent SQL injection.
 
-## 🛠️ Setup Instructions
+## 🛠️ Local Setup Instructions
 
-### 1. Database Setup
-1. Start Apache and MySQL in XAMPP.
-2. Open `http://localhost/phpmyadmin`.
-3. Create a database named `fullstack_login_db` or import the provided `database.sql` file.
+### 1. Database Configuration
+1. Start the **Apache** and **MySQL** modules in your XAMPP Control Panel.
+2. Open phpMyAdmin (`http://localhost/phpmyadmin`).
+3. Import the provided `database.sql` file to create the `fullstack_login_db` database and `users` table.
 
-### 2. Backend Setup
-1. Place the project folder in your XAMPP `htdocs` directory (`C:/xampp/htdocs/fullstack-login`).
-2. Ensure `config/db.php` has the correct database credentials.
-
-### 3. Frontend Setup
-1. Open a terminal and navigate to the `client` folder.
-2. Run `npm install` to install dependencies.
-3. Run `npm run dev` to start the Vite development server.
-4. Open the provided localhost link (usually `http://localhost:5173`).
+### 2. Application Configuration
+1. Clone this repository into your XAMPP `htdocs` directory (e.g., `C:/xampp/htdocs/fullstack-login`).
+2. Navigate to the `config/` directory.
+3. Rename the `db.example.php` file to `db.php`.
+4. Open `db.php` and verify the default XAMPP credentials match your local setup:
+   ```php
+   $host = '127.0.0.1';
+   $db   = 'fullstack_login_db';
+   $user = 'root';
+   $pass = ''; // Leave blank for default XAMPP
