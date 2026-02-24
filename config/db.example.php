@@ -1,8 +1,11 @@
 <?php
+// config/db.example.php
+// INSTRUCTIONS: Rename this file to db.php and update the credentials below.
+
 $host = '127.0.0.1';
-$db   = 'fullstack_login_db';
-$user = 'root';
-$pass = '';
+$db   = 'your_database_name';
+$user = 'your_username';
+$pass = 'your_password';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8mb4", $user, $pass);
